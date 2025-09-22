@@ -30,7 +30,7 @@ export default function RootLayout({
         <div className="flex justify-between">
           {/* leftsidebar */}
           <LeftBar></LeftBar>
-          <div className="w-[65%]">
+          <div className="w-[70%]">
                     {children}
           </div>
           {/* rightsidebar */}
