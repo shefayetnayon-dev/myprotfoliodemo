@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -61,21 +62,21 @@ const Hero = () => {
   // Calculate parallax movement
   const calculateParallax = (speed: number) => {
     if (!heroRef.current) return { x: 0, y: 0 };
-    
+
     const rect = heroRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
+
     const moveX = (mousePosition.x - centerX) * speed;
     const moveY = (mousePosition.y - centerY) * speed;
-    
+
     return { x: moveX, y: moveY };
   };
 
   // Generate particles only on client side
   const renderParticles = () => {
     if (!isClient) return null;
-    
+
     return [...Array(20)].map((_, i) => {
       // Generate consistent random values for each particle
       const size = Math.random() * 4 + 1;
@@ -85,7 +86,7 @@ const Hero = () => {
       const duration = Math.random() * 10 + 10;
       const moveY = -Math.random() * 100 - 50;
       const moveX = (Math.random() - 0.5) * 100;
-      
+
       return (
         <motion.div
           key={i}
@@ -113,18 +114,18 @@ const Hero = () => {
   };
 
   return (
-    <section 
+    <section
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient orbs */}
-        <motion.div 
+        <motion.div
           className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-purple-600 opacity-20 blur-3xl"
           animate={floatingAnimation}
         />
-        <motion.div 
+        <motion.div
           className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-indigo-600 opacity-20 blur-3xl"
           animate={{
             y: [0, -20, 0],
@@ -135,7 +136,7 @@ const Hero = () => {
             }
           }}
         />
-        <motion.div 
+        <motion.div
           className="absolute top-1/3 right-1/3 w-48 h-48 rounded-full bg-pink-600 opacity-20 blur-3xl"
           animate={{
             y: [0, -20, 0],
@@ -146,7 +147,7 @@ const Hero = () => {
             }
           }}
         />
-        
+
         {/* Floating particles - only rendered on client */}
         {renderParticles()}
       </div>
@@ -160,7 +161,7 @@ const Hero = () => {
             animate="visible"
             className="text-center lg:text-left"
           >
-            <motion.h1 
+            <motion.h1
               variants={itemVariants}
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight"
             >
@@ -170,38 +171,41 @@ const Hero = () => {
               </span>
               <span className="block text-white mt-2">Inspire & Convert</span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               variants={itemVariants}
               className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl lg:max-w-xl mx-auto lg:mx-0"
             >
               I'm Shefayet Nayon, a passionate developer creating stunning web experiences with cutting-edge technology and design.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4"
             >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium rounded-full overflow-hidden group"
-              >
-                <span className="relative z-10">View My Work</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-              </motion.button>
-              
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-transparent border-2 border-white text-white font-medium rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300"
-              >
-                Contact Me
-              </motion.button>
+              <Link href={'/portfolio'}>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium rounded-full overflow-hidden group"
+                >
+                  <span className="relative z-10">View My Work</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                </motion.button>
+              </Link>
+              <Link href={'/contact'}>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-transparent border-2 border-white text-white font-medium rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300"
+                >
+                  Contact Me
+                </motion.button>
+              </Link>
             </motion.div>
           </motion.div>
-          
+
           {/* Right content - Animated card */}
           <motion.div
             className="relative"
@@ -214,7 +218,7 @@ const Hero = () => {
             }}
           >
             {/* Main card */}
-            <motion.div 
+            <motion.div
               className="relative bg-gray-800/30 backdrop-blur-lg rounded-2xl border border-white/10 p-1 shadow-2xl"
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}
@@ -223,7 +227,7 @@ const Hero = () => {
                 <div className="p-6">
                   <div className="flex items-center space-x-4 mb-6">
                     <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-purple-500">
-                      <Image 
+                      <Image
                         src="https://i.postimg.cc/DZdMRq12/94421575-1462621767243736-3919540940481495040-n.jpg"
                         alt="Shefayet Nayon"
                         width={64}
@@ -236,7 +240,7 @@ const Hero = () => {
                       <p className="text-purple-400">Full Stack Developer</p>
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     {[
                       { title: "Projects", value: "50+" },
@@ -255,7 +259,7 @@ const Hero = () => {
                       </motion.div>
                     ))}
                   </div>
-                  
+
                   <div className="space-y-3">
                     {[
                       { icon: "M13 10V3L4 14h7v7l9-11h-7z", text: "Lightning Fast Performance" },
@@ -281,7 +285,7 @@ const Hero = () => {
                 </div>
               </div>
             </motion.div>
-            
+
             {/* Floating elements around card */}
             <motion.div
               className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 opacity-20 blur-xl"
@@ -301,7 +305,7 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-      
+
       {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
