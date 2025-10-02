@@ -124,7 +124,7 @@ const ServicesPage = () => {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">Services</span>
+              My <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">Services</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-10">
               Comprehensive solutions to transform your ideas into reality
