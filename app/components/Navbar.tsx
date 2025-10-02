@@ -283,7 +283,7 @@ const Navbar = () => {
             
             {/* Hire Me button with hover effect */}
             <button className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-2 rounded-full font-medium shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-0.5">
-              <a href="#contact">Hire Me</a>
+              <Link href={'/contact'}>Hire Me</Link>
             </button>
           </div>
 
@@ -427,7 +427,7 @@ const Navbar = () => {
               <div className="mt-4 flex flex-col space-y-3">
                 {/* Mobile Hire Me button */}
                 <button className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-3 rounded-full font-medium shadow-md">
-                 <a href="#contact">Hire M</a>
+                 <Link href={'/contact'}>Hire Me</Link>
                 </button>
               </div>
             </motion.div>
