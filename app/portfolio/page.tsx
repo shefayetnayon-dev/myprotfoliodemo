@@ -29,13 +29,13 @@ const PortfolioPage = () => {
     },
     {
       id: 2,
-      title: "Task Management App",
-      description: "Collaborative task management solution for teams",
+      title: "Advance Note Maker",
+      description: "Advance Note Maker Good options for Our daily Life",
       category: "web",
-      image: "https://images.unsplash.com/photo-1559028006-44a36f8632c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      technologies: ["Next.js", "Firebase", "Tailwind CSS"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com"
+      image: "https://i.postimg.cc/q7kTwHbC/notemaker.png",
+      technologies: ["Vanila JavaScript", "HTML", "Custom CSS"],
+      githubUrl: "https://github.com/shefayetnayon-dev/noteAPPs",
+      liveUrl: "https://shefayetnayonnote.netlify.app/"
     },
     {
       id: 3,
