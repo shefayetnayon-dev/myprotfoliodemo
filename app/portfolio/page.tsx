@@ -49,13 +49,13 @@ const PortfolioPage = () => {
     },
     {
       id: 4,
-      title: "Fitness Tracker",
-      description: "Mobile app for tracking workouts and nutrition",
-      category: "mobile",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      technologies: ["React Native", "Redux", "Firebase"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com"
+      title: "Music Streaming",
+      description: "A music streaming service is a streaming media service that focuses on digital audio, including music",
+      category: "Web and Mobile",
+      image: "https://i.postimg.cc/8C9s0Cq0/music.png",
+      technologies: ["React", "NextJS", "TailwindCSS"],
+      githubUrl: "https://github.com/shefayetnayon-dev/music",
+      liveUrl: "https://music-shefayetnayon.vercel.app/"
     },
     {
       id: 5,
