@@ -118,7 +118,7 @@ const About = () => {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { title: "Name", value: "Shefayet Nayon" },
-                  { title: "Location", value: "Dhaka, Bangladesh" },
+                  { title: "Location", value: "Chuadanga, Khulna, Bangladesh" },
                   { title: "Experience", value: "7+ Years" },
                   { title: "Education", value: "Computer Science" }
                 ].map((item, index) => (
