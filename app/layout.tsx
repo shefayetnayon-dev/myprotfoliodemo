@@ -64,6 +64,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           name="google-site-verification"
           content="googlecb13ee32ff977eea.html"
         />
+        <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Shefayet Nayon",
+      url: "https://shefayetnayon.netlify.app",
+      sameAs: [
+        "https://www.linkedin.com/in/yourprofile",
+        "https://github.com/yourprofile",
+        "https://twitter.com/your_twitter_handle",
+      ],
+      jobTitle: "Frontend Developer",
+      worksFor: {
+        "@type": "Organization",
+        name: "Shefayet Nayon Portfolio",
+      },
+    }),
+  }}
+/>
+
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
