@@ -16,22 +16,59 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Authentic Frontend Design | Shefayet Nayon",
-  description: "Clean code meets bold personality. Discover Shefayet Nayon expressive UI work.",
+  description:
+    "Clean code meets bold personality. Discover Shefayet Nayon expressive UI work.",
+  keywords: [
+    "frontend developer",
+    "nextjs developer",
+    "ui designer",
+    "web developer",
+    "shefayet nayon",
+  ],
+  applicationName: "Shefayet Nayon Portfolio",
+  authors: [{ name: "Shefayet Nayon", url: "https://shefayetnayon.netlify.app" }],
+  openGraph: {
+    title: "Authentic Frontend Design | Shefayet Nayon",
+    description: "Clean code meets bold personality.",
+    url: "https://shefayetnayon.netlify.app",
+    siteName: "Shefayet Nayon Portfolio",
+    images: [
+      {
+        url: "https://shefayetnayon.netlify.app/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Shefayet Nayon Portfolio",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Authentic Frontend Design | Shefayet Nayon",
+    description: "Clean code meets bold personality.",
+    images: ["https://shefayetnayon.netlify.app/og-image.png"],
+    site: "@your_twitter_handle", // optional
+    creator: "@your_twitter_handle", // optional
+  },
+  alternates: {
+    canonical: "https://shefayetnayon.netlify.app",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar/>
+      <head>
+        {/* Google verification */}
+        <meta
+          name="google-site-verification"
+          content="googlecb13ee32ff977eea.html"
+        />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Navbar />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
