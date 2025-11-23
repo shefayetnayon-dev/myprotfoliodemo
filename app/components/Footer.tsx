@@ -33,11 +33,24 @@ const Footer = () => {
     { name: 'Contact', href: '/contact' },
   ];
 
-  const contactInfo = [
-    { icon: <FiMail className="w-5 h-5" />, text: 'shefayetnayon@gmail.com' },
-    { icon: <FaWhatsapp  className="w-5 h-5" />, text: '+880 1822580581' },
-    { icon: <FiMapPin className="w-5 h-5" />, text: 'Chuadanga,khulna, Bangladesh' },
-  ];
+const contactInfo = [
+  { 
+    icon: <FiMail className="w-5 h-5" />, 
+    text: 'shefayetnayon@gmail.com',
+    link: 'mailto:shefayetnayon@gmail.com'
+  },
+  { 
+    icon: <FaWhatsapp className="w-5 h-5" />, 
+    text: '+880 1822580581',
+    link: 'https://wa.me/8801822580581'   // WhatsApp direct chat
+  },
+  { 
+    icon: <FiMapPin className="w-5 h-5" />, 
+    text: 'Chuadanga, Khulna, Bangladesh',
+    link: 'https://maps.app.goo.gl/APNA1V2Snx5N114fA'
+  },
+];
+
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -124,7 +137,6 @@ const Footer = () => {
     }
   };
 
-  // ক্লায়েন্ট সাইডে না থাকলে লোডিং স্টেট দেখাবে
   if (!isClient) {
     return (
       <footer className="bg-gradient-to-br from-gray-900 to-black text-gray-300 pt-16 pb-8 relative overflow-hidden">
@@ -211,23 +223,32 @@ const Footer = () => {
               ))}
             </ul>
           </motion.div>
-
-          {/* Contact Info */}
+     {/* contact info */}
           <motion.div variants={itemVariants} className="space-y-4">
-            <h3 className="text-white text-lg font-semibold">Contact Info</h3>
-            <ul className="space-y-3">
-              {contactInfo.map((contact, index) => (
-                <motion.li
-                  key={index}
-                  variants={itemVariants}
-                  className="flex items-start space-x-3"
-                >
-                  <span className="text-purple-400 mt-1">{contact.icon}</span>
-                  <span className="text-gray-400">{contact.text}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
+  <h3 className="text-white text-lg font-semibold">Contact Info</h3>
+  <ul className="space-y-3">
+    {contactInfo.map((contact, index) => (
+      <motion.li
+        key={index}
+        variants={itemVariants}
+        className="flex items-start space-x-3"
+      >
+        <a 
+          href={contact.link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-start space-x-3"
+        >
+          <span className="text-purple-400 mt-1">{contact.icon}</span>
+          <span className="text-gray-400 hover:text-white transition">
+            {contact.text}
+          </span>
+        </a>
+      </motion.li>
+    ))}
+  </ul>
+</motion.div>
+
 
           {/* Newsletter */}
           <motion.div variants={itemVariants} className="space-y-4">
